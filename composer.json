@@ -1,0 +1,16 @@
+{
+    "name": "akii/translatable",
+    "type": "typo3-flow-package",
+    "description": "Entity Translation",
+    "version": "1.0.0",
+    "require": {
+        "gedmo/doctrine-extensions": "v2.3.6"
+    },
+    "suggest": {
+    },
+    "autoload": {
+        "psr-0": {
+            "Akii\\Translatable": "Classes"
+        }
+    }
+}

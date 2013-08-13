@@ -6,8 +6,6 @@ TYPO3:
 
     persistence:
       doctrine:
-        eventSubscribers:
-          - 'Akii\Translatable\TranslatableListener'
         eventListeners:
           -
             events: ['postLoad', 'postPersist', 'preFlush', 'onFlush', 'loadClassMetadata']

@@ -1,5 +1,4 @@
 <?php
-
 namespace Akii\Translatable\Entity;
 
 use Doctrine\ORM\Mapping\Table;
@@ -20,7 +19,7 @@ use TYPO3\Flow\Annotations as Flow;
  *             "locale", "object_class", "field", "foreign_key"
  *         })}
  * )
- * @Entity(repositoryClass="Gedmo\Translatable\Entity\Repository\TranslationRepository")
+ * @Entity(repositoryClass="Akii\Translatable\Entity\Repository\TranslationRepository")
  * @Flow\Entity
  */
 class Translation extends MappedSuperclass\AbstractTranslation

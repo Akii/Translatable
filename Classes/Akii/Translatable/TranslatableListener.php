@@ -2,28 +2,22 @@
 namespace Akii\Translatable;
 
 use Gedmo\Translatable\Mapping\Event\TranslatableAdapter;
+use TYPO3\Flow\Annotations as Flow;
+use TYPO3\Flow\Configuration\ConfigurationManager;
 
 class TranslatableListener extends \Gedmo\Translatable\TranslatableListener {
 
 	/**
-	 * Locale which is set on this listener.
-	 * If Entity being translated has locale defined it
-	 * will override this one
-	 *
-	 * @var string
+	 * @var ConfigurationManager
+	 * @Flow\Inject
 	 */
-	protected $locale = 'de_DE';
+	protected $configurationManager;
 
-	/**
-	 * Default locale, this changes behavior
-	 * to not update the original record field if locale
-	 * which is used for updating is not default. This
-	 * will load the default translation in other locales
-	 * if record is not translated yet
-	 *
-	 * @var string
-	 */
-	private $defaultLocale = 'de_DE';
+	public function initializeObject() {
+		$defaultLocale = $this->configurationManager->getConfiguration(ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, 'TYPO3.Flow.i18n.defaultLocale');
+		$this->setTranslatableLocale($defaultLocale);
+		$this->setDefaultLocale($defaultLocale);
+	}
 
 	public function getTranslationClass(TranslatableAdapter $ea, $class) {
 		if (isset(self::$configurations[$this->name][$class]['translationClass'])) {

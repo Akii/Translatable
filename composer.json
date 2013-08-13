@@ -4,6 +4,7 @@
     "description": "Entity Translation",
     "version": "1.0.0",
     "require": {
+        "typo3/flow": "dev-master",
         "gedmo/doctrine-extensions": "v2.3.6"
     },
     "suggest": {
